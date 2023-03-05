@@ -10,12 +10,6 @@ body, html {
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif, sans-serif; /* Font default for page may be placed here? - Esther */
 }
 
-/***************** 
-* Scroll to top button 
-* Inspiration:Inspired by: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp 
-* Owner : Kevin VD
-* Date  : Dec 05 
-******************/
 
 #TopBtn {
   display: none;
@@ -52,10 +46,7 @@ body, html {
   justify-content: space-between; /* updated from space-around */
   align-items: center;
 }
-/*
-Owner: Jessica Murdoch
-navbar basic design inspiration from https://www.w3schools.com/howto/howto_js_topnav.asp 
-Date November 22, 2022*/
+
 .navlist {
   list-style: none;
   float: right;
@@ -237,12 +228,7 @@ ul.navbar li:hover > ul.sub_drop {
 
 
 
-/*********************
-Owner: Jessica Murdoch
-Inspiration: The basics were inspired from w3schools https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer and heaviliy modified it with different colour choices, hovering, text, etc...*/
-/*'.bottomfooter' is used for the style/CSS of the footer bar at the bottom. 
-/*Date: Dec 07, 2022
-********************/
+
 
 
 footer {
@@ -254,15 +240,7 @@ footer {
   text-align: center;
   padding: 40px;
 }
-/* footerFB {
-	position: fixed;
-	right: 0;
-	width:fit-content;
-	background-color: whitesmoke;
-	color: #0B0909;
-	text-align: center;
-	padding: 60px;
-} */
+
 
 .footer a {
   padding-top: 4%;
@@ -282,16 +260,6 @@ footer {
 }
 
 
-/* End Owner: Jessica Murdoch */
-
-/***************** 
-* Heading Defaults
-* Owner : Esther Kim
-* Date  : Dec 06 (v2)
-* Referenced Palettes from Group Discussion:
-* * https://palettes.shecodes.io/palettes/1548#palette
-* * https://palettes.shecodes.io/palettes/1551
-******************/
 h1, h2, h3, h4, h5, h6 { /* Default for all hn */
 	font-family: 'Segoe UI', Tahoma, Verdana, sans-serif, sans-serif; /* Several fonts should be listed for fallback */ 
 }
@@ -368,14 +336,7 @@ h6 { /* Heading - Specific use for main page*/
 .subtitles {
   padding-bottom: 2%;
 }
-/* End Owner: Esther Kim */
 
-/***************** 
-* Header Image
-* Owner : Lucija Bralic
-* Date  : Dec 08
-******************/
-/* Inspiration: https://www.w3schools.com/w3css/w3css_templates.asp "Startup Template"  */
 .header-image {
   background-position: center;
   background-size: cover;
@@ -397,7 +358,7 @@ h6 { /* Heading - Specific use for main page*/
   text-align: center;
 }
 
-/* End Owner: Lucija Bralic */
+
 
 /* --- Page Content --- */
 .page-content {
@@ -407,11 +368,7 @@ h6 { /* Heading - Specific use for main page*/
   padding:8px 16px;
 }
 
-/***************** 
-* Project Images
-* Owner : Lucija Bralic
-* Date  : Dec 08
-******************/
+
 
 .project-container:after,.project-container:before,.project-row-padding:after,.project-row-padding:before {
   content:"";
@@ -460,14 +417,7 @@ h6 { /* Heading - Specific use for main page*/
 .project-image:hover {				/* When the user hovers over the project image, the opacity is lowered */
   opacity: 0.7;
 }
-/* End Owner: Lucija Bralic */
 
-/***************** 
-* Classes for Heading Arrangement
-* Owner : Esther Kim
-* Date  : Dec 06 (v2)
-* Ref   : https://www.w3schools.com/css/css_website_layout.asp
-******************/
 .h2text {
   margin-left: 70px;
   margin-top: 35px;
@@ -489,9 +439,7 @@ h6 { /* Heading - Specific use for main page*/
   display: block;   /* :after item behaves like block */
   clear: both;      /* clears area from other floating elements - both side	*/
 }
-/* Code for Grid used in Testimonial Page */
-/* Reference for the reason in using grids over original flexbox idea */
-/* https://css-tricks.com/equal-columns-with-flexbox-its-more-complicated-than-you-might-think/ */
+
 .grid-container {
   display: grid;
   grid-auto-flow: column; /* makes behaviour like flexbox */
@@ -499,7 +447,7 @@ h6 { /* Heading - Specific use for main page*/
   gap: 1em;
 }
 .grid-container > div { /* for use in div */
-  background-color: #EBF5EE; /*Meghan - adding colour */
+  background-color: #EBF5EE; 
   text-align: center;
   margin: 30px;
   padding: 20px;
@@ -568,16 +516,7 @@ h6 { /* Heading - Specific use for main page*/
     font-size: 30px;
   }
 }
-/* End Owner: Esther Kim */
 
-/* Owner: Meghan Noonan
-Purpose: Mostly formatting of the body of each page. Also some link and image formatting. Responisve design also included below for p, div, img in body
-/* Inspiration for the body (fonts, line spacing, colour blocks and box layouts) was inspired by several sources including
- https://harpargrace.com/pages/our-brands, https://nakashimawoodworkers.com/, https://capitalstairsinc.com/about_us/, https://www.zanderplan.com/how-zanderplan-works-with-developers/
-The souce code is modified from W3Schools, lecture content, textbook and the capital stairs website START */
-
-
-/* Other pages body will be modified by swapping quote box for images and adding tabs */
 
 body {
 	margin:0;
@@ -874,4 +813,4 @@ body {
 	}
 
 }
-/* Meghan Noonan: Owner of body section END */
+
