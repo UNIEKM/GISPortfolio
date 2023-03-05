@@ -1,0 +1,877 @@
+* {									
+	box-sizing: border-box;			/* Width and height calculations will include padding and borders */
+	margin: 0;						      /* Overrides defaults and sets the margin of the entire page to 0 */
+	padding: 0;						      /* Overrides defaults and sets the padding of the entire page to 0 */
+}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif, sans-serif; /* Font default for page may be placed here? - Esther */
+}
+
+/***************** 
+* Scroll to top button 
+* Inspiration:Inspired by: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp 
+* Owner : Kevin VD
+* Date  : Dec 05 
+******************/
+
+#TopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background-color: #0B0909;
+  color: #e0ebeb;
+  cursor: crosshair;
+  padding: 10px;
+  border-radius: 40px;
+}
+
+#TopBtn:hover {
+  background-color: #44444C;
+}
+
+/*------------Fullscreen NavBar----------------*/ 
+/***************** 
+* Fullsize NavBar/Tablet + Mobile Screen NavBar/Active class for JavaScript/ 
+* Inspiration: W3S https://www.w3schools.com/howto/howto_js_topnav_responsive.asp  / https://www.youtube.com/watch?v=FazgJVnrVuI
+* Owner : Kevin VD
+* Date  : Nov 23 (v1)
+******************/
+.navbar {
+  background-color: whitesmoke; 
+  color:#0B0909;
+  display:flex;
+  overflow: hidden;
+  justify-content: space-between; /* updated from space-around */
+  align-items: center;
+}
+/*
+Owner: Jessica Murdoch
+navbar basic design inspiration from https://www.w3schools.com/howto/howto_js_topnav.asp 
+Date November 22, 2022*/
+.navlist {
+  list-style: none;
+  float: right;
+  color: #0B0909; 
+  padding: 10px 14px;
+  text-decoration: none;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 17px;
+  margin-right: 2%;
+}
+/*End of navbar basics for navbar by Jessica Murdoch*/
+.navlist .list_item {
+  display: inline-block;
+  padding: 20px 16px;
+}
+.navbar a {
+  color:#0B0909;  
+  text-decoration: none;
+}
+.navbar a:hover {
+  color:  #0B0909; 
+  transition: all 0.5s;
+  text-decoration: underline;
+}
+.navlist a.active {
+  /* background-color: #0f4754; */
+  color:  #0B0909; 
+  text-decoration: underline;
+  font-weight: bold;
+}
+.navbar .CompanyLogo {
+  max-height: 70px;
+  display: inline-block; /* added */
+  vertical-align: middle; /* added */
+}
+.navbar .CompanyName {
+  color: #44444C; 
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 23px;
+  font-weight:normal;
+  display: inline-block; /* added */
+  padding: 0 20px 10px 20px; /* added */
+  vertical-align: middle; /* added */
+}
+.menu_bar {
+  width: 22px;
+  height: 3.5px;
+  background-color: #44444C; 
+  margin-bottom: 4.5px;
+}
+.menuicon { /*Hide icon until @media mod kicks in aka smaller than 960px screen*/
+  display: none;
+}
+/***************** 
+* jQuery drop menu 
+* Inspiration: jQuery HTML Tutorial: https://www.youtube.com/watch?v=tdwXQRZUiRw
+* Owner : Kevin VD
+* Date  : Dec 05
+******************/
+ul.sub_drop {
+  position: absolute;
+  width: auto;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+ul.sub_drop li:first-child {
+  margin-top: -10px;
+}
+
+ul.sub_drop li > a:hover {
+  background-color: #5dacbd;
+  color: #fff;
+}
+
+ul.sub_drop li a {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+ul.sub_drop li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+/* Add a dropdown arrow to the Projects menu item */
+ul.navbar li:nth-child(3)::after {
+  content: "\25BC";
+  display: inline-block;
+  margin-left: 5px;
+  color: #e0ebeb;
+}
+
+/* Add a dropdown arrow to the parent menu items */
+ul.navbar li::after {
+  content: "\25BC";
+  display: inline-block;
+  margin-left: 5px;
+  color: #e0ebeb;
+}
+
+/* Show the dropdown list when hovering over the parent menu item */
+ul.navbar li:hover > ul.sub_drop {
+  display: block;
+}
+
+
+@media all and (max-width:960px) {
+  .navbar {
+    flex-direction: column;
+    position: relative;
+    transition: ease-in-out 0.4s;
+  }
+  ul.sub_drop {
+    position:sticky;
+    width:fit-content;
+    background-color: #44444C;
+    display: none;
+    margin-top: 25px;
+    margin-left: auto; /*Auto adjust drop list to center when screen size changes*/
+    margin-right: auto;
+  }
+  ul.sub_drop li:first-child{ /*Sets position of first drop down link*/
+    margin-top: -25px;
+  }
+  
+  ul.sub_drop li > a:hover {
+   border: none;
+   color: #5dacbd;
+   transition: 0.5s;
+  }
+  ul.sub_drop li a {
+    text-decoration: none;
+    display:flex;
+    text-align: center;
+    color: #e0ebeb;
+    font-size: small;
+   }
+  .menuicon {
+    display: block;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+  } 
+  .navlist {
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+    padding-top: 6px;
+    display: none;/*Hide nav list items*/
+  }
+  .navlist .list_item {/*Want to add transition for menu drop down*/
+    display: block;
+    padding: 8px 4px;
+    text-align: center;
+    padding-top:8px;
+  }
+  .navbar .GeomSolutions {/*Align name/logo left*/
+    width: 100%;
+    margin-left: 8px;
+    margin-top: 8px;
+  }
+  .active { /*Active class for JavaScript to bring our list back once icon is clicked*/
+    display: block
+  }
+}
+
+/* --- Kevin VD: END NavBar CSS + JavaScript class + jQuery drop menu--- */
+
+
+
+/*********************
+Owner: Jessica Murdoch
+Inspiration: The basics were inspired from w3schools https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_fixed_footer and heaviliy modified it with different colour choices, hovering, text, etc...*/
+/*'.bottomfooter' is used for the style/CSS of the footer bar at the bottom. 
+/*Date: Dec 07, 2022
+********************/
+
+
+footer {
+	left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: whitesmoke;
+  color: #0B0909;
+  text-align: center;
+  padding: 40px;
+}
+/* footerFB {
+	position: fixed;
+	right: 0;
+	width:fit-content;
+	background-color: whitesmoke;
+	color: #0B0909;
+	text-align: center;
+	padding: 60px;
+} */
+
+.footer a {
+  padding-top: 4%;
+  color: #0B0909;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px 22px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footer a:hover {
+  color:  #0B0909; 
+  transition: all 0.5s;
+  text-decoration: underline;
+}
+
+
+/* End Owner: Jessica Murdoch */
+
+/***************** 
+* Heading Defaults
+* Owner : Esther Kim
+* Date  : Dec 06 (v2)
+* Referenced Palettes from Group Discussion:
+* * https://palettes.shecodes.io/palettes/1548#palette
+* * https://palettes.shecodes.io/palettes/1551
+******************/
+h1, h2, h3, h4, h5, h6 { /* Default for all hn */
+	font-family: 'Segoe UI', Tahoma, Verdana, sans-serif, sans-serif; /* Several fonts should be listed for fallback */ 
+}
+h1 { /* Main Page Heading */
+  padding-top: 50px; 
+	margin-left: 5px;
+	font-size: 70pt;
+}
+h2 { /* Heading for non-main pages */
+	font-size: 50px;
+	margin-left: 30px;
+  color: #0B0909;
+  padding-left: 8%; /* to align with page contents */
+  letter-spacing: -0.5mm;
+}
+h3 { /* Supporting Heading */
+	color: #0B0909; 
+  font-size: 35px;
+	margin-top: 10px;
+  margin-bottom: 20px;
+}
+h4 { /* Supporting Heading - Centered */
+	color: #0B0909; 
+  font-size: 35px;
+	text-align: center;
+	margin-left: 35px;
+}
+h5 { /* Inner Heading */
+  color: #0B0909;
+  font-size: 30px;
+	margin: 18px;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  
+}
+h6 { /* Heading - Specific use for main page*/
+  color: #0B0909;
+  font-size: 40px;
+  letter-spacing: -0.7mm;
+  margin: 40px;
+  text-align:center; /* align text with the main header text */
+}
+.SLink {
+ 
+	margin: 1px;
+  
+}
+.Slinkdiv {
+  margin-top: 8px;
+	margin: 1px;
+  padding-top: 2%;
+  
+}
+
+
+.SLink2 {
+  padding-top: 1px;
+  padding-bottom: 3%;
+  
+}
+.subtitles2 {
+  margin-top: 1px;
+	margin: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  
+}
+
+.FMap {
+  margin-top: 8px;
+	margin: 1px;
+  padding-top: 2%;
+}
+.subtitles {
+  padding-bottom: 2%;
+}
+/* End Owner: Esther Kim */
+
+/***************** 
+* Header Image
+* Owner : Lucija Bralic
+* Date  : Dec 08
+******************/
+/* Inspiration: https://www.w3schools.com/w3css/w3css_templates.asp "Startup Template"  */
+.header-image {
+  background-position: center;
+  background-size: cover;
+  background-image: url("images/image-header.jpg");
+  min-height: 100%; /* Meghan - edited the max/min height of the image to ensure the entire image is above the fold and other content is shown above the fold to indicate users need to scroll to see everything */
+  background-repeat: no-repeat ; /* added no repeat to enure background image was a single, non repeating image */
+  position: relative;
+}
+
+.header-image-text {
+  top: 50%;
+  text-align: center;
+  color:#fff;
+  padding-top: 100px;
+}
+
+.header-image-subtitle {
+  font-size:30px;
+  text-align: center;
+}
+
+/* End Owner: Lucija Bralic */
+
+/* --- Page Content --- */
+.page-content {
+	max-width:1564px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:8px 16px;
+}
+
+/***************** 
+* Project Images
+* Owner : Lucija Bralic
+* Date  : Dec 08
+******************/
+
+.project-container:after,.project-container:before,.project-row-padding:after,.project-row-padding:before {
+  content:"";
+  display:table;
+  clear:both;     /* Clearing the style before and after the container */
+}
+
+.project-container {
+  padding:0.16px 16px;
+  margin-bottom: 16px;
+  
+}
+
+.project-fourth {   /* Creating four floating project images */
+  float:left;
+  width:100%;
+  padding:0 8px;
+  
+}
+
+@media (min-width:801px) {    /* Adding responsive design to the images */
+  .project-fourth {
+    width:25%;
+  }
+}
+
+.project-display-container {
+  position:relative;
+}
+
+.project-display-textbox {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index: 1;			/* Brings the black box to the front, so that its opacity is not lowered when the user hovers over the image */
+  color:#D6D6D6;
+  background-color:#0B0909;
+  padding:8px 16px;
+}
+
+.project-image img {
+  
+	width: 100%;
+}
+
+.project-image:hover {				/* When the user hovers over the project image, the opacity is lowered */
+  opacity: 0.7;
+}
+/* End Owner: Lucija Bralic */
+
+/***************** 
+* Classes for Heading Arrangement
+* Owner : Esther Kim
+* Date  : Dec 06 (v2)
+* Ref   : https://www.w3schools.com/css/css_website_layout.asp
+******************/
+.h2text {
+  margin-left: 70px;
+  margin-top: 35px;
+  padding-bottom: 1%;
+}
+.centerGrid { /* to format text in grid  */
+  margin: auto;
+  max-width: 80%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.row { /* to format headings alone */
+  margin-left: 75px;
+  margin-right: 75px;
+}
+/* Clear floats appearing after */
+.row:after {
+  content: "";      /* used with :after, in this case, inserts empty str */
+  display: block;   /* :after item behaves like block */
+  clear: both;      /* clears area from other floating elements - both side	*/
+}
+/* Code for Grid used in Testimonial Page */
+/* Reference for the reason in using grids over original flexbox idea */
+/* https://css-tricks.com/equal-columns-with-flexbox-its-more-complicated-than-you-might-think/ */
+.grid-container {
+  display: grid;
+  grid-auto-flow: column; /* makes behaviour like flexbox */
+  grid-auto-columns: 1fr;
+  gap: 1em;
+}
+.grid-container > div { /* for use in div */
+  background-color: #EBF5EE; /*Meghan - adding colour */
+  text-align: center;
+  margin: 30px;
+  padding: 20px;
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2); /* colour transparency is the last parameter */
+}
+.grid-container2 { /* Another version for 'Why choose us' section */
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-auto-flow: column; /*makes behaviour like flexbox*/
+  gap: 1em;
+}
+.grid-container2 > div {
+  background-color: #ffffff;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+}
+.testQuote { /* For alignment and spacing in testimonial quote names. */
+  line-height: 400%;
+  text-align: left;
+  font-size: 20px; 
+	font-family: Verdana, sans-serif; 
+	color: gray;
+	line-height: 155%; 
+}
+/* Responsive design for h1, .grid-container - shifts to a stacking arrangement when screen size passes limit */
+@media screen and (max-width: 1150px) {
+  .h1text {
+    font-size: 8vw; /* font unit vw for responsive design */
+  }
+  .grid-container {
+    grid-auto-flow: row; /* change orientation of the boxes */
+  }
+  .grid-container2 {
+    grid-auto-flow: row; /* change orientation of the boxes */
+    gap: 20px;
+  }
+}
+/* Responsive design for h2 */
+@media screen and (max-width: 1000px) {
+  .h2text {
+    margin-left: 30px;
+    padding: 0%;
+  }
+}
+/* Responsive design for headings and their margins for smaller screen size */
+@media screen and (max-width: 600px) {
+  .row {
+	  margin-left: 40px;
+    margin-right: 40px;
+  }
+  .h2text {
+	  font-size: 40px;  
+	  margin-top: 40px;
+  }
+  .h3text {
+    font-size: 30px;
+	  margin: 30px;
+  }
+  .h4text {
+    font-size: 30px;
+    margin: 30px;
+  }
+  .h6text {
+    font-size: 30px;
+  }
+}
+/* End Owner: Esther Kim */
+
+/* Owner: Meghan Noonan
+Purpose: Mostly formatting of the body of each page. Also some link and image formatting. Responisve design also included below for p, div, img in body
+/* Inspiration for the body (fonts, line spacing, colour blocks and box layouts) was inspired by several sources including
+ https://harpargrace.com/pages/our-brands, https://nakashimawoodworkers.com/, https://capitalstairsinc.com/about_us/, https://www.zanderplan.com/how-zanderplan-works-with-developers/
+The souce code is modified from W3Schools, lecture content, textbook and the capital stairs website START */
+
+
+/* Other pages body will be modified by swapping quote box for images and adding tabs */
+
+body {
+	margin:0;
+	padding:0;
+}
+
+.topbox{
+	padding-right: 15%;
+	padding-left: 15%;
+	padding-bottom: 1%;
+	padding-top: 1%;
+	text-align: center;
+	font-size: 20px; 
+	font-family: Verdana, sans-serif;
+	color: #44444C;
+	background-color: #D6D6D6; 
+}
+.topbox2{
+	padding-right: 15%;
+	padding-left: 15%;
+	padding-bottom: 1%;
+	padding-top: 1%;
+	color: none;
+	background-color: none; 
+}
+
+.sectionbox{
+	background-color: #EBF5EE; /* background colour will be changed when colours are chosen */
+	padding-right: 15%;
+	padding-left: 15%;
+	padding-bottom: 5%;
+	padding-top: 5%;
+	
+}
+
+.sectionboxone{
+	display: flex; /* make it so the text boxes can stack if screen is smaller */
+	flex-direction: row;
+	background-color: white;
+	padding-right: 15%;
+	padding-left: 15%;
+	padding-bottom: 5%;
+	padding-top: 1%;
+	
+}
+
+.sectionboxtwo{
+	display: flex;
+	flex-direction: row;
+	background-color: #D6D6D6; /* background colour will be changed when colours are chosen */
+	padding-right: 15%;
+	padding-left: 15%;
+	padding-bottom: 5%;
+	padding-top: 1%;
+	
+}
+
+/* for other pages the quote box will be swapped for images that will be contained in the section boxes */
+.quotebox{
+	padding: 3px; /* quote box has different padding levels to make it left justified from center */
+	flex: 25%;
+	font-size: 25px; 
+	font-style: italic;
+	font-family: Verdana, sans-serif;
+	color: #18314F;
+	font-style: italic;
+	line-height: 155%;
+
+
+} 
+/* Paragraph/div formmating for the values page */
+
+.paragraphbox{
+	padding: 8px;
+	flex: 75%;
+	font-size: 20px; 
+	font-family: 'Segoe UI', Tahoma, Verdana, sans-serif, sans-serif; 
+	color: #44444C;
+	line-height: 155%; /* add spaces between rows of text for readability */
+}
+
+.values{
+  padding: 40px;
+	flex: 75%;
+	font-size: 20px; 
+	font-family: Verdana, sans-serif; 
+	color: gray;
+	line-height: 155%; /* add spaces between rows of text for readability */
+
+}
+
+/*Pragraph formatting for the teams page for the checkerboard effect */
+/*dog used a stand in picture */
+
+.pad{
+	background-color: white; /* background colour will be changed when colours are chosen */
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top:0%;
+}
+
+.sectionboxoneteam{
+	display: flex; /* make it so the text boxes can stack if screen is smaller */
+	flex-direction: row;
+	background-color: white;
+	padding:5%;
+	
+}
+
+
+
+/* for other pages the quote box will be swapped for images that will be contained in the section boxes */
+.quoteboxteam{
+	padding: 4%;
+	flex:auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.paragraphboxteam{
+  padding-top: 1%;
+	padding-left: 2%;
+	padding-right: 2%;
+	flex: 75%;
+	font-size: 20px; 
+	font-family: 'Segoe UI', Tahoma, Verdana, sans-serif, sans-serif; 
+	color: #0B0909;
+	line-height: 155%; /* add spaces between rows of text for readability */
+}
+/* .FireBox {
+  padding-bottom: 4%;
+} */
+.FireMapSource{
+  padding-top: 1%;
+  padding-bottom: 1%;
+	padding-left: 2%;
+	padding-right: 2%;
+	flex: 75%;
+	font-size: 20px; 
+	font-family: 'Segoe UI', Tahoma, Verdana, sans-serif, sans-serif; 
+	color: #0B0909;
+	line-height: 155%; /* add spaces between rows of text for readability */
+  text-align: center;
+}
+.FireMapSource1{
+  padding-top: 4%;
+  padding-bottom: 1%;
+	padding-left: 2%;
+	padding-right: 2%;
+	flex: 75%;
+	font-size: 20px; 
+	font-family: 'Segoe UI', Tahoma, Verdana, sans-serif, sans-serif; 
+	color: #0B0909;
+	line-height: 155%; /* add spaces between rows of text for readability */
+  text-align: center;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+
+@media (max-width: 1400px){ /*Responsive */
+	.sectionboxoneteam, .sectionboxtwoteam{
+		flex-direction: column;
+	}
+
+}
+
+/* Add space on the Past Projects page between the projects boxes */
+.padpast{
+	background-color: white; /* background colour will be changed when colours are chosen */
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom:0.25%;
+}
+
+/* Add padding between the paragraphs on the coding page */ 
+.coding{
+  padding-bottom:5%;
+}
+
+/* format the left jusitified quote box to make the text bold but hold the same general formatting of the template */
+
+
+/* Add responsiveness to past projects images and team images */
+
+@media (max-width: 412px){
+	.pastprojects{
+    max-width: 100%;
+    height: auto;
+    padding: 5%;
+	}
+	.imgteam{
+		max-width: 100%;
+		padding: 5%;
+	}
+
+}
+
+/* this link will be edited once 'company content is solidified */ 
+.teamlinks{
+	font-family: Verdana, sans-serif; 
+	color: black;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* @media sourced from W3Schools CSS Flex Responsive tutorial https://www.w3schools.com/css/css3_flexbox_responsive.asp */
+
+@media (max-width: 800px){
+	.sectionboxone, .sectionboxtwo{
+		flex-direction: column;
+	}
+	
+
+}
+
+
+/* Add formatting to fonts on the testimonials page for body text */
+.testimonials2{
+	font-size: 20px; 
+	font-family: Verdana, sans-serif; 
+	color: gray;
+  font-style: italic;
+	line-height: 155%; /* add spaces between rows of text for readability */
+}
+
+.testimonials{
+	font-size: 20px; 
+	font-family: Verdana, sans-serif; 
+	color: gray;
+	line-height: 155%; /* add spaces between rows of text for readability */
+}
+
+/* Homepage formatting for paragraph */
+.hometext{
+	font-size: 20px; 
+	font-family: 'Segoe UI', Tahoma, Verdana, sans-serif, sans-serif; 
+	color: #0B0909;
+	line-height: 155%; /* add spaces between rows of text for readability */
+  text-align:center;
+  padding-bottom: 3%;
+}
+
+/* Formatting for the spatial, coding, surveying pages paragraphs and images */
+
+.sectionboxoneprojects{
+	display: flex; /* make it so the text boxes can stack if screen is smaller */
+	flex-direction: row;
+	background-color: white;
+	padding:5%;
+	
+}
+
+
+/* for other pages the quote box will be swapped for images that will be contained in the section boxes */
+.quoteboxprojects{
+	padding: 3px; /* quote box has different padding levels to make it left justified from center */
+	flex: 25%;
+
+} 
+/* Paragraph/div formmating for the values page */
+
+.paragraphboxprojects{
+	padding-left: 2%;
+	padding-right: 2%;
+	flex: 75%;
+	font-size: 20px; 
+	font-family: Verdana, sans-serif; 
+	color: gray;
+	line-height: 155%; /* add spaces between rows of text for readability */
+}
+
+.pastprojects{
+  border: 4px solid #44444C;
+  max-width: 800px;
+  max-height: 618px;
+  /* align-items: center; */
+
+}
+.Subsubtitles {
+  padding-bottom: 1%;
+  padding-top: 1%;
+}
+.banklist {
+  list-style-type: none;
+}
+
+
+@media (max-width: 1200px){
+	.sectionboxoneprojects{
+		flex-direction: column;
+	}
+
+}
+/* Meghan Noonan: Owner of body section END */
