@@ -71,7 +71,7 @@ body, html {
 .navbar a:hover {
   color:  #0B0909; 
   transition: all 0.5s;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .navlist a.active {
   /* background-color: #0f4754; */
@@ -121,7 +121,7 @@ ul.sub_drop {
 }
 
 ul.sub_drop li:first-child {
-  margin-top: -10px;
+  margin-top: 0px;
 }
 
 ul.sub_drop li > a:hover {
@@ -150,13 +150,6 @@ ul.navbar li:nth-child(3)::after {
   color: #e0ebeb;
 }
 
-/* Add a dropdown arrow to the parent menu items */
-ul.navbar li::after {
-  content: "\25BC";
-  display: inline-block;
-  margin-left: 5px;
-  color: #e0ebeb;
-}
 
 /* Show the dropdown list when hovering over the parent menu item */
 ul.navbar li:hover > ul.sub_drop {
