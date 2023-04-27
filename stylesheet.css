@@ -80,7 +80,7 @@ body, html {
   font-weight: bold;
 }
 .navbar .CompanyLogo {
-  max-height: 70px;
+  max-height: 40px;
   display: inline-block; /* added */
   vertical-align: middle; /* added */
 }
@@ -88,10 +88,10 @@ body, html {
   color: #44444C; 
   text-decoration: none;
   letter-spacing: 2px;
-  font-size: 23px;
+  font-size: 18px;
   font-weight:normal;
   display: inline-block; /* added */
-  padding: 0 20px 10px 20px; /* added */
+  padding: 0 10px 5px 10px; /* added */
   vertical-align: middle; /* added */
 }
 .menu_bar {
@@ -193,6 +193,10 @@ ul.navbar li:hover > ul.sub_drop {
     position: absolute;
     right: 12px;
     top: 12px;
+    display: inline-block; /* added */
+    padding: 0 10px 5px 10px; /* added */
+    /* vertical-align: middle;  */
+    
   } 
   .navlist {
     list-style-type: none;
